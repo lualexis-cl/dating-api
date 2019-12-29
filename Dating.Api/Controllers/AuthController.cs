@@ -47,8 +47,7 @@ namespace Dating.Api.Controllers
 
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserLoginDto dto)
-        {
-            throw new Exception("Computer Says No!!");
+        {            
             var user = await _authRepository.Login(dto.UserName, dto.Password);
 
             if (user == null)
