@@ -37,7 +37,7 @@ namespace Dating.Api.Controllers
                 return BadRequest("UserName already exists");
             }
 
-            var user = await _authRepository.Register(new User
+            await _authRepository.Register(new User
             {
                 UserName = dto.UserName
             }, dto.Password);
