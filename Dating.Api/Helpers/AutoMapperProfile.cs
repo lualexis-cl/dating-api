@@ -15,12 +15,16 @@ namespace Dating.Api.Helpers
                     option.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url))
                 .ForMember(destination => destination.Age, option =>
                     option.MapFrom(src => src.DateOfBirth.CalculateAge()));
+
             CreateMap<User, UserDetailDto>()
                 .ForMember(destination => destination.PhotoUrl, option =>
                     option.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url))
                 .ForMember(destination => destination.Age, option =>
                     option.MapFrom(src => src.DateOfBirth.CalculateAge()));
+
             CreateMap<Photo, PhotoDetailDto>();
+
+            CreateMap<UserForUpdateDto, User>();
         }
     }
 }
